@@ -6,20 +6,19 @@ env:
 jobs:
   CI_STEPS:
      runs-on: ubuntu-20.04
-     if:  env.name == 'dev' 
+     env: 
+       name: "dev-ci-steps"
      steps:
-     - name: Cloning the code
-       uses: actions/checkout@v4
-     
-     - name: checking-files
-       run: ls -l
-      
+     - name: Printing-name
+       run: echo "environment- $name"
      - name: Printing-Hello World
        run: echo "hello-world"
       
   CD_STEPS:
+     needs: [CI_STEPS]
      runs-on: ubuntu-20.04
      steps:  
      - name: Printing-Hello World
-       run: echo "hello-world-from-production"  
+       run: echo "hello-world-from-production-----$name"  
+       
      
