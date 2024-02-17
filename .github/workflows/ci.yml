@@ -6,7 +6,7 @@ env:
 jobs:
   CI_STEPS:
      runs-on: ubuntu-20.04
-     if: ${{ env.name == 'dev' }}
+     if:  env.name == 'dev' 
      steps:
      - name: Cloning the code
        uses: actions/checkout@v4
