@@ -9,7 +9,7 @@ jobs:
      steps:
        - name: step-1
          shell: bash
-         run: echo "MY Project Secret  ${PROJECT_NAME}"
+         run: echo "MY Project Secret  $PROJECT_NAME"
          env:
              PROJECT_NAME:  ${{ secrets.PROJECT_NAME }}       
     
