@@ -1,8 +1,11 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
+env:
+  environment: dev
 jobs:
   CI_STEPS:
+     if: ${{ env.environment == 'dev' }}
      runs-on: ubuntu-20.04
      steps:
      - name: Cloning the code
@@ -11,4 +14,9 @@ jobs:
        run: ls -l
      - name: Printing-Hello World
        run: echo "hello-world" 
-      
+  CD_STEPS:
+     runs-on: ubuntu-20.04
+     steps:  
+     - name: Printing-Hello World
+       run: echo "hello-world-from-production"  
+     
