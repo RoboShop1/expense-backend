@@ -7,6 +7,7 @@ jobs:
      steps:
      - name: Cloning the code
        uses: actions/checkout@v4
+     - name: checking-files
        run: ls -l
      - name: Printing-Hello World
        run: echo "hello-world" 
