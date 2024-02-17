@@ -14,18 +14,26 @@ on:
       use-emoji:
         type: boolean
         description: Include 🎉🤣 emojis
-      environment:
-        type: environment
 env:
   name: "dev"
 jobs:
   job1:
+     if: ${{ github.event.inputs.use-emoji == 'true' }}
      runs-on: ubuntu-20.04
      steps:
        - name: step-1
          shell: bash
          run: echo "MY Project Secret  ${PROJECT_NAME}"
          env:
-             PROJECT_NAME:  ${{ secrets.PROJECT_NAME }}       
+             PROJECT_NAME:  ${{ secrets.PROJECT_NAME }} 
+  job2:
+     if: ${{ github.event.inputs.use-emoji == 'false' }}
+     runs-on: ubuntu-20.04
+     steps:
+       - name: step-1
+         shell: bash
+         run: echo "MY Project Secret  ${PROJECT_NAME}"
+         env:
+             PROJECT_NAME:  ${{ secrets.PROJECT_NAME }}             
     
      
