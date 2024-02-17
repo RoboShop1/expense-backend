@@ -4,21 +4,18 @@ on: [push]
 env:
   name: "dev"
 jobs:
-  CI_STEPS:
+  job1:
      runs-on: ubuntu-20.04
-     env: 
-       name: "dev-ci-steps"
      steps:
-     - name: Printing-name
-       run: echo "environment- $name"
-     - name: Printing-Hello World
-       run: echo "hello-world"
-      
-  CD_STEPS:
-     needs: [CI_STEPS]
+       - name: step-1
+         shell: bash
+         run: echo "hello-world-step1"
+         
+  job2:
+     needs: [job1]
      runs-on: ubuntu-20.04
-     steps:  
-     - name: Printing-Hello World
-       run: echo "hello-world-from-production-----$name"  
-       
+     steps:
+       - name: step-1
+         shell: bash
+         run: echo "hello-world-step1"       
      
