@@ -15,7 +15,6 @@ jobs:
        if: ${{ env.name == 'dev' }}
      - name: Printing-Hello World
        run: echo "hello-world"
-       if: ${{ env.name == 'dev' }}
   CD_STEPS:
      runs-on: ubuntu-20.04
      steps:  
