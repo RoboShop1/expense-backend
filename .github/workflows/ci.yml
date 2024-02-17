@@ -5,6 +5,9 @@ jobs:
   CI_STEPS:
      runs-on: ubuntu-20.04
      steps:
+     - name: Cloning the code
+       uses: actions/checkout@v4
+       run: ls -l
      - name: Printing-Hello World
        run: echo "hello-world" 
       
