@@ -9,7 +9,7 @@ jobs:
      steps:
        - name: step-1
          shell: bash
-         run: echo "hello-world-step1"
+         run: echo "hello-world-step1" && exit 1
          
   job2:
      needs: [job1]
