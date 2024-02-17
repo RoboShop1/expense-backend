@@ -5,15 +5,17 @@ env:
   name: "dev"
 jobs:
   CI_STEPS:
-     if: ${{ env.name == 'dev' }}
      runs-on: ubuntu-20.04
      steps:
      - name: Cloning the code
        uses: actions/checkout@v4
+       if: ${{ env.name == 'dev' }}
      - name: checking-files
        run: ls -l
+       if: ${{ env.name == 'dev' }}
      - name: Printing-Hello World
-       run: echo "hello-world" 
+       run: echo "hello-world"
+       if: ${{ env.name == 'dev' }}
   CD_STEPS:
      runs-on: ubuntu-20.04
      steps:  
