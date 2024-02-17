@@ -2,10 +2,10 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 env:
-  environment: dev
+  name: "dev"
 jobs:
   CI_STEPS:
-     if: ${{ env.environment == 'dev' }}
+     if: ${{ env.name == 'dev' }}
      runs-on: ubuntu-20.04
      steps:
      - name: Cloning the code
