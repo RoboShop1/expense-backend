@@ -13,6 +13,7 @@ jobs:
          
   job2:
      needs: [job1]
+     if: ${{ always() }}
      runs-on: ubuntu-20.04
      steps:
        - name: step-1
